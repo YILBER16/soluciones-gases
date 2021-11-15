@@ -119,10 +119,7 @@ class CertificadosController extends Controller
       $orden= Ordenes::all()->where('Id_produccion',$request->Id_produccion)->first();
       $producto= Productos::all('Id_producto','Nom_producto');
       $envase= Envases::all('Id_envase','Clas_producto','Estado_actual','Inventario','Capacidad')->where('Estado_actual','==','0')->where('Inventario','==','1');
-
-
-
-        return view('certificados.edit',compact('certificados','orden','producto','envase'));
+      return view('certificados.edit',compact('certificados','orden','producto','envase'));
 
     }
 
@@ -226,19 +223,20 @@ class CertificadosController extends Controller
       {
         $id = $request->Id_envase;
         $stock=Envases::findOrFail($id);
-
-        if ($stock->update(['Estado_actual'=>'1'])) {
+        $stock2 = Envases::on('mysql2')->findOrFail($id);
+        if ($stock->update(['Estado_actual'=>'1']) && $stock2->update(['Estado_actual'=>'1'])) {
         return response()->json($stock);
           
         }
+        
          
       }
       public function antistock(Request $request, $Id_envase)
       {
         $id = $request->Id_envase;
         $stock=Envases::findOrFail($id);
-
-        if ($stock->update(['Estado_actual'=>'0'])) {
+        $stock2 = Envases::on('mysql2')->findOrFail($id);
+        if ($stock->update(['Estado_actual'=>'0']) && $stock2->update(['Estado_actual'=>'0'])) {
         return response()->json($stock);
           
         }
