@@ -94,25 +94,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
+ <aside class="main-sidebar sidebar-dark-primary ">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="{{ asset('dist/img/logogases.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Gases industriales</span>
+    <a href="#" class="brand-link" style="background:white">
+      <img src="{{ asset('dist/img/logogases.jpg')}}" alt="Logo"  class=""
+           style="width: 100% !important; max-width: 60%; margin:auto;display:block;">
+      <span class="brand-text font-weight-light"> </span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
         <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('dist/img/users.png')}}" class="img-circle elevation-2" alt="User Image" style="background:white;">
         </div>
-        <div class="info">
+        
+        <div class="info" style="margin-bottom:-30px !important;">
           @auth
-          <label class="" style="color:#FFFFFF";>{{Auth::user()->name}} {{Auth::user()->roles->isNotEmpty()? Auth::user()->roles->first()->name : ""}}</label>
-
+          <label class="" style="color:#FFFFFF; font-size:20px;">{{Auth::user()->name}} <br>
+          <span class="" style="color:#FFFFFF; font-size:15px;">{{Auth::user()->roles->isNotEmpty()? Auth::user()->roles->first()->name : ""}}</span></label>          
           @endauth
         </div>
       </div>

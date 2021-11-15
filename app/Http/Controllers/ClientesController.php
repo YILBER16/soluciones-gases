@@ -69,7 +69,7 @@ class ClientesController extends Controller
        
 
         Clientes::insert($datosCliente);
-
+        Clientes::on('mysql2')->insert($datosCliente);
         $tipo = "alert alert-success";
 
  
@@ -113,7 +113,7 @@ class ClientesController extends Controller
     {
       $datosCliente=request()->except(['_token','_method']);
        Clientes::where('Id_cliente','=',$Id_cliente)->update($datosCliente);
-        
+       Clientes::on('mysql2')->where('Id_cliente','=',$Id_cliente)->update($datosCliente);
         return redirect('clientes')->with('Mensaje','Cliente Modificado con exito');
     }
 
@@ -135,6 +135,8 @@ class ClientesController extends Controller
     public function deleteDate(Request $request)
     {
         $data=Clientes::find($request->Id_cliente)->delete();
+        $data=Clientes::on('mysql2')->find($request->Id_cliente)->delete();
+        
         return response()->json();
     }
      public function exportpdf()

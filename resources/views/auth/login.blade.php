@@ -17,7 +17,7 @@
             <img style="height:400px; width:700px;" src="dist/img/cilindro.png">
         </div>
         <div style="position: fixed; left: 70em; top: 2em;" >
-        <img class="avatar" src="dist/img/logogases.png" style="height: 100px; width: 200px;">
+        <img class="avatar" src="dist/img/logogases.jpg" style="height: 100px; width: 200px;">
         </div>
         <div class="login-container2">
 
