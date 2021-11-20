@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/alertify.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/themes/default.css')}}"><div hidden="">.</div>
 <link rel="stylesheet" href="{{asset('css/component-chosen.min.css')}}" >
-
+<link rel="stylesheet" href="{{asset('dist/css/inputcheckbox.min.css')}}" >
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
           </li>
            @endcanany
-          @can('isAdmin')
+           @canany(['isProduccion','isAdmin','isVentas'])
           <p></p>
 
           <li class="nav-item has-treeview menu-close boton2">
@@ -169,10 +169,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          @endcan
           <p></p>
           
-          @canany(['isProduccion','isAdmin','isVentas'])
+          
           <li class="nav-item bg-primary boton2">
                 <a href="{{ url('/envases/')}}" class="nav-link">
 
